@@ -1,4 +1,6 @@
-FROM arm32v6/alpine:latest
+ARG VERSION=":notset"
+ARG ARCH=":notset"
+FROM $ARCH/alpine:$VERSION
 
 RUN apk add --no-cache tftp-hpa \
     && mkdir /tftproot \
