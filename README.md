@@ -21,6 +21,9 @@ docker buildx inspect --bootstrap
 
 # Build for arm32v7, and load the resulting image into the local docker 
 docker buildx build --build-arg VERSION=latest --build-arg ARCH=arm32v7 --platform linux/arm/v7 --load .
+
+# Build for arm64 (RPi 4) and push to dockerhub
+docker buildx build --build-arg VERSION=3.13.1 --build-arg ARCH=arm64v8 --platform linux/arm64 --push -t "paulseward/tftp-hpa:alpine-3.13.1-arm64-0" .
 ```
 
 If you don't want the hastle of making a `docker buildx` environment that works, GCP Cloud Shell is already configured for it and works great.
